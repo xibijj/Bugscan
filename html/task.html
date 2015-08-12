@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站漏洞扫描系统</title>
+</head>
+<style>
+a{color:#0000FF;text-decoration:none}
+</style>
+<body>
+<div align="justify">
+<?php if ($_SESSION["user"]){$uu=$_SESSION["user"];}else{$uu='Anonymous';}?>
+<font size="+1"><?php echo '　　'.$uu.'</font> | '.$_SERVER["REMOTE_ADDR"];?> | <?php if ($_SESSION["user"]){echo '<a href="index.php">加添任务</a> | <a href="task.php">查看任务</a> | <a href="exp_list.php">漏洞列表</a> | <a href="exit.php">退出</a>';}else{echo '<a href="login.php">登录</a>';}?></div>
+
+<div align="justify"><hr width="100%" color="#FF0000" size="1"></div>
+<div align="center"><font color=green>一个简洁实用的在线Web安全扫描平台！</font></div>
+<div align="justify"><hr width="100%" color="#FF0000" size="1"></div>
+
+<div style="height:30px;"></div>
+
+<div align="center">
+<table width="50%" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+	<tr>
+        <th>目标</th>
+		<th>状态</th>
+		<th>时间</th>
+		<th>操作</th>
+    </tr>
+	<tbody class='c'>
+    <?php echo $loopstr;?>
+    </tbody>
+</table>
+</div>
+
+</body>
+</html>

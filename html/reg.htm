@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF8" />
+<title>用户注册—<?php echo $sitename?></title>
+<link rel="stylesheet" type="text/css" href="html/images/css.css"/>
+<script type="text/javascript" src="html/images/jquery.js"></script>
+<script language="JavaScript" src="html/images/jquery.validate.min.js"></script>
+<script type="text/javascript" src="html/images/jw.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#login").validate({
+		success: function(label) {
+			label.text("　").addClass("success");
+		},
+		rules: {
+			userid: {required: true},
+			pwd: {required: true},
+			telnum: {required: true},
+			regkey: {required: true}
+		},
+		errorPlacement: function(error, element) {
+			element.parent().next().html("");                            //错误信息位置设置方法
+			error.appendTo( element.parent().next());
+		},
+		messages:{
+			userid: {required: "请填写用户名"},
+			pwd: {required: "请填写密码"},
+			telnum: {required: "请填写手机号码"},
+			regkey: {required: "请填写注册码,获取注册码请联系QQ:2376457928"}
+		}
+	})
+})
+</script>
+</head>
+<body>
+	<div class="loginmain" style="width:100%">
+        <form action="" id="login" method="post">
+    	<div class="table" style="height:auto">
+        	<div class="left">
+            	<div class="t1 yahei" style="margin-top:20px">用户注册</div>
+                <div class="t2">
+                	<ul>
+                    	<li><span>用 户 名：<input type="text" name="userid" maxlength="10" id="userid" class="input" value=""></span><span class="rem"></span></li>
+                    	<li><span>密　　码：<input type="password" name="pwd" id="pwd" class="input"></span><span class="rem"></span></li>
+                    	<li><span>手机号码：<input type="text" name="telnum" id="telnum" class="input"></span><span class="rem"></span></li>
+                    	<li><span>注 册 码：<input type="text" name="regkey" id="regkey" class="input"></span><span class="rem"></span></li>
+                    	<li style="margin-top:5px; height:5px; line-height:5px; overflow:hidden; margin-left:60px"><input type="hidden" name="action" value="ok"></li>
+                    	<li style="height:42px; margin-left:60px"><input type="submit" name="submit" value="注册" class="submit"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right"></div>
+        </div>
+        </form>
+        <div class="copyright"></div>
+    </div>
+</body>
+</html>

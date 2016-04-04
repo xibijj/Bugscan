@@ -8,8 +8,8 @@ else:
     import urllib
     import time
     _C = True
-    _U = '<?php echo str_replace('/py.php?','',$_SERVER['REQUEST_URI']);?>'
-    _B = '<?php echo $_SERVER['HTTP_HOST'];?>'
+    _U = '<?php echo $_SERVER['QUERY_STRING'];?>'
+    _B = '<?php echo $_SERVER['HTTP_HOST'].str_replace('/py.php','',$_SERVER['SCRIPT_NAME']);?>'
     print "[...] Initialize engine ..."
     while _C:
         try:
